@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![Ollama](https://img.shields.io/badge/Ollama-Compatible-black?style=flat-square)](https://ollama.com)
 [![Platform](https://img.shields.io/badge/Windows%20|%20Linux%20|%20macOS-grey?style=flat-square)]()
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/YOUR_USERNAME/ollama-forge/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/zhengxuanjiang/ollama-forge/pulls)
 
 <br>
 
@@ -515,7 +515,7 @@ curl http://localhost:8751/v1/chat/completions \
 ### 3 Commands to Launch / 三行命令启动
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ollama-forge.git
+git clone https://github.com/zhengxuanjiang/ollama-forge.git
 cd ollama-forge
 python run.py
 ```
@@ -1181,6 +1181,6 @@ Fork → git checkout -b feature/xxx → commit → push → Pull Request
 
 <br>
 
-<!-- [![Star History Chart](https://api.star-history.com/svg?repos=YOUR_USERNAME/ollama-forge&type=Date)](https://star-history.com/#YOUR_USERNAME/ollama-forge&Date) -->
+<!-- [![Star History Chart](https://api.star-history.com/svg?repos=zhengxuanjiang/ollama-forge&type=Date)](https://star-history.com/#zhengxuanjiang/ollama-forge&Date) -->
 
 </div>
