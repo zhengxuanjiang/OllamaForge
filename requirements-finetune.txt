@@ -1,0 +1,65 @@
+# ============================================================
+# Ollama GUI — 微调训练环境依赖
+# ============================================================
+#
+# ⚠️  这些包应安装在【独立的训练环境】中（conda 或 venv），
+#     不要和主程序混装！
+#
+# 安装方法:
+#   1. 创建环境:
+#      conda create -n ollama-gui-ft python=3.11 -y
+#      conda activate ollama-gui-ft
+#
+#   2. 先装 PyTorch GPU 版 (根据你的 CUDA 版本选 index-url):
+#      pip install torch==2.4.0 torchvision==0.19.1 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu121
+#
+#      CUDA 版本对应:
+#        CUDA 11.8  → --index-url https://download.pytorch.org/whl/cu118
+#        CUDA 12.1  → --index-url https://download.pytorch.org/whl/cu121
+#        CUDA 12.4  → --index-url https://download.pytorch.org/whl/cu124
+#        CUDA 12.6+ → --index-url https://download.pytorch.org/whl/cu126
+#      (用 nvidia-smi 查看你的 CUDA 版本)
+#
+#   3. 再装其余依赖:
+#      pip install -r requirements-finetune.txt
+#
+# Python 版本: 3.10 或 3.11 (推荐 3.11)
+# ============================================================
+
+# ===== 核心训练框架 =====
+transformers==4.46.3        # HuggingFace 模型库
+datasets==3.2.0             # 数据集加载与处理
+peft==0.13.2                # LoRA / QLoRA 适配器
+trl==0.12.2                 # SFTTrainer 训练器
+accelerate==1.2.1           # 训练加速 / 分布式
+
+# ===== 量化 =====
+bitsandbytes==0.45.3        # 4-bit / 8-bit 量化 (QLoRA 必需)
+
+# ===== Tokenizer / 序列化 =====
+sentencepiece==0.2.1        # LLaMA / Gemma 等模型的 tokenizer
+protobuf==3.20.3            # sentencepiece 依赖
+tokenizers==0.20.3          # HuggingFace tokenizers
+safetensors==0.7.0          # 安全模型格式
+
+# ===== HuggingFace Hub =====
+huggingface_hub==0.27.1     # 模型下载 / 上传
+
+# ===== 数值计算 =====
+numpy==1.26.4               # 固定 1.x，避免 numpy 2.x 兼容问题
+
+# ============================================================
+# 📝 注意事项:
+#
+# 1. PyTorch 必须单独安装 (带 --index-url)，不在此文件中
+#    因为 pip 无法从 requirements.txt 指定 --index-url
+#
+# 2. 不需要安装 unsloth / triton / xformers
+#    本项目使用标准 PEFT + TRL，不依赖这些包
+#
+# 3. 如果遇到 "numpy 2.x 不兼容" 错误:
+#    pip install numpy==1.26.4
+#
+# 4. 如果 bitsandbytes 报错 (Windows):
+#    pip install bitsandbytes --prefer-binary
+# ============================================================
